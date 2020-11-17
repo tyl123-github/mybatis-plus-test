@@ -1,4 +1,4 @@
-package com.tyl.config;
+package com.tyl.common.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;

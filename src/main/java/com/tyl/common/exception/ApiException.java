@@ -1,6 +1,6 @@
 package com.tyl.common.exception;
 
-import lombok.Data;
+import com.tyl.common.enums.ResultCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,29 +8,11 @@ import lombok.Setter;
 @Getter
 public class ApiException extends RuntimeException {
 
+    private String message;
     private String errorCode;
 
-    public ApiException(String errorCode) {
-        this.errorCode = errorCode;
-    }
-
-    public ApiException(String message, String errorCode) {
-        super(message);
-        this.errorCode = errorCode;
-    }
-
-    public ApiException(String message, Throwable cause, String errorCode) {
-        super(message, cause);
-        this.errorCode = errorCode;
-    }
-
-    public ApiException(Throwable cause, String errorCode) {
-        super(cause);
-        this.errorCode = errorCode;
-    }
-
-    public ApiException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String errorCode) {
-        super(message, cause, enableSuppression, writableStackTrace);
-        this.errorCode = errorCode;
+    public ApiException(String message) {
+        this.message = message;
+        this.errorCode = ResultCode.VALIDATE_FAILED.getCode();
     }
 }

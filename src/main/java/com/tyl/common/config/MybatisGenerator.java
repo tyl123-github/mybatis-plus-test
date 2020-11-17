@@ -1,4 +1,4 @@
-package com.tyl.config;
+package com.tyl.common.config;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;

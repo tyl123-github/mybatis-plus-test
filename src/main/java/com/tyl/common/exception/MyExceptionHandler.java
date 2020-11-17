@@ -10,9 +10,6 @@ public class MyExceptionHandler {
 
     @ExceptionHandler(value = ApiException.class)
     public Response handle(ApiException e) {
-        if (e.getErrorCode() != null) {
-            return ApiResponse.error(e.getErrorCode());
-        }
-        return ApiResponse.error(e.getMessage());
+        return ApiResponse.error(e.getErrorCode(), e.getMessage());
     }
 }

@@ -50,7 +50,7 @@ public class ApiResponse<T> {
         return response(code, null, msg, COUNT);
     }
 
-    public static Response error(String code) {
-        return error(code, ResultCode.DEFAULT.getMessage());
+    public static Response error(String msg) {
+        return error(ResultCode.VALIDATE_FAILED.getCode(), msg);
     }
 }
