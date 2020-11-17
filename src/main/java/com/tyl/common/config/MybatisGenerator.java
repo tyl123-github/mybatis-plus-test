@@ -32,6 +32,7 @@ public class MybatisGenerator {
         mpg.setTemplate(new TemplateConfig()
                 .setService(null)
                 .setController(null)
+                .setEntity(null)
                 .setMapper(null)
                 .setServiceImpl(null)
                 .setXml(null));
@@ -62,6 +63,14 @@ public class MybatisGenerator {
             public String outputFile(TableInfo tableInfo) {
                 String expand = property + "/src/main/java/com/tyl/" + moduleName + "/" + "controller";
                 return String.format((expand + File.separator + "%s" + StringPool.DOT_JAVA), tableInfo.getControllerName());
+            }
+        });
+        fileOutConfigs.add(new FileOutConfig(
+                "/templates/entity.java.ftl") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                String expand = property + "/src/main/java/com/tyl/" + moduleName + "/" + "entity";
+                return String.format((expand + File.separator + "%s" + StringPool.DOT_JAVA), tableInfo.getEntityName());
             }
         });
         fileOutConfigs.add(new FileOutConfig(
